@@ -61,7 +61,7 @@ function App() {
               return (
                 <div key={index}>
                   <img src={update.image} alt="update-icon" />
-                  <div>{update.message}</div>
+                  <p>{update.message}</p>
                 </div>
               );
             })}
@@ -77,7 +77,7 @@ function App() {
               placeholder="Enter your email..."
             />
             {/* Show error message if there is an error */}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className="error">{error}</p>}
           </div>
 
           {/* Subscribe Button */}
