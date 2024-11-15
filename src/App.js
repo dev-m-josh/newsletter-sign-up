@@ -50,40 +50,47 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <>
       {/* Render initial content only if not subscribed */}
       {!subscribed ? (
-        <div>
-          <h1>Stay updated!</h1>
-          <p>Join 60,000+ product managers receiving monthly updates on:</p>
-          <div>
-            {updates.map((update, index) => {
-              return (
-                <div key={index}>
-                  <img src={update.image} alt="update-icon" />
-                  <p>{update.message}</p>
-                </div>
-              );
-            })}
-          </div>
+        <div className="subscribe">
+          <div className="update">
+            <h1>Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <div>
+              {updates.map((update, index) => {
+                return (
+                  <div className="updates" key={index}>
+                    <img src={update.image} alt="update-icon" />
+                    <p>{update.message}</p>
+                  </div>
+                );
+              })}
+            </div>
 
-          <div>
-            <h5>Email address:</h5>
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-              placeholder="Enter your email..."
-            />
-            {/* Show error message if there is an error */}
-            {error && <p className="error">{error}</p>}
-          </div>
+            <div className="input">
+              <h5>Email address:</h5>
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                required
+                placeholder="Enter your email..."
+              />
+              {/* Show error message if there is an error */}
+              {error && <p className="error">{error}</p>}
+            </div>
 
-          {/* Subscribe Button */}
-          <button onClick={handleSubscribe}>
-            Subscribe to monthly newsletter
-          </button>
+            {/* Subscribe Button */}
+            <button className="sub-button" onClick={handleSubscribe}>
+              Subscribe to monthly newsletter
+            </button>
+          </div>
+          <img
+            className="right-image"
+            src="/assets/images/illustration-sign-up-desktop.svg"
+            alt="desktop-image"
+          />
         </div>
       ) : (
         <div className="thanks">
@@ -93,15 +100,10 @@ function App() {
             A confirmation email has been sent to <span>{email}</span>. Please
             open it and click the button inside to confirm your subscription.
           </p>
-          <button onClick={() => setSubscribed(false)}>Dismiss message</button>
+          <button className="sub-button" onClick={() => setSubscribed(false)}>Dismiss message</button>
         </div>
       )}
-
-      <img
-        src="/assets/images/illustration-sign-up-desktop.svg"
-        alt="desktop-image"
-      />
-    </div>
+    </>
   );
 }
 
