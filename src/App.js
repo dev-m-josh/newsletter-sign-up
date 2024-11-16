@@ -86,11 +86,13 @@ function App() {
               Subscribe to monthly newsletter
             </button>
           </div>
-          <img
-            className="right-image"
-            src="/assets/images/illustration-sign-up-desktop.svg"
-            alt="desktop-image"
-          />
+          <div className="image">
+            <img
+              className="right-image"
+              src="/assets/images/illustration-sign-up-desktop.svg"
+              alt="desktop-image"
+            />
+          </div>
         </div>
       ) : (
         <div className="thanks">
@@ -100,7 +102,9 @@ function App() {
             A confirmation email has been sent to <span>{email}</span>. Please
             open it and click the button inside to confirm your subscription.
           </p>
-          <button className="sub-button" onClick={() => setSubscribed(false)}>Dismiss message</button>
+          <button className="sub-button" onClick={() => setSubscribed(false)}>
+            Dismiss message
+          </button>
         </div>
       )}
     </>
